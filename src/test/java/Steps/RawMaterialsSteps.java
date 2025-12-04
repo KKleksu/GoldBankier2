@@ -17,4 +17,8 @@ public class RawMaterialsSteps {
         rawMaterialsPage.goToInvestPage(material);
 
     }
+    @When("I click on Quotes")
+    public void goToQutes(){
+        rawMaterialsPage.goToQuotesPage();
+    }
 }

@@ -18,6 +18,8 @@ public class RawMaterialsPage extends PageObject {
 
 @FindBy (css = ".m-quotes-section-quotes-card-list")
     WebElement quotesSection;
+@FindBy(xpath = "//*[@class='m-link-list__item']//*[contains(text(),'Notowania')]")
+    WebElement quotesPage;
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
@@ -29,5 +31,10 @@ public class RawMaterialsPage extends PageObject {
     public boolean imOnRawMaterialPage(){
         wait.until(ExpectedConditions.visibilityOf(quotesSection));
         return quotesSection.isDisplayed();
+    }
+    public RawMaterialQuotesPage goToQuotesPage(){
+        wait.until(ExpectedConditions.elementToBeClickable(quotesPage));
+        quotesPage.click();
+        return new RawMaterialQuotesPage(driver);
     }
 }
