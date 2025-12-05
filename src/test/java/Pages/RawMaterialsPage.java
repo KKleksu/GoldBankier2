@@ -20,6 +20,10 @@ public class RawMaterialsPage extends PageObject {
     WebElement quotesSection;
 @FindBy(xpath = "//*[@class='m-link-list__item']//*[contains(text(),'Notowania')]")
     WebElement quotesPage;
+@FindBy(xpath = "//*[@class='m-link-list__item']//*[contains(text(),'Stopy zwrotu')]")
+    WebElement ratesOfReturn;
+@FindBy(css = ".m-breadcrumbs-list__item")
+        WebElement breadCrumbsHomePage;
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
@@ -36,5 +40,15 @@ public class RawMaterialsPage extends PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(quotesPage));
         quotesPage.click();
         return new RawMaterialQuotesPage(driver);
+    }
+    public RatesOfReturnPage goToRatesOfReturnPage(){
+        wait.until(ExpectedConditions.elementToBeClickable(ratesOfReturn));
+        ratesOfReturn.click();
+        return new RatesOfReturnPage(driver);
+    }
+    public HomePage goToHomePageByBreadCrumbs(){
+        wait.until(ExpectedConditions.elementToBeClickable(breadCrumbsHomePage));
+        breadCrumbsHomePage.click();
+        return new HomePage(driver);
     }
 }

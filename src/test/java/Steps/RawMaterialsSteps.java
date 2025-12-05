@@ -21,4 +21,12 @@ public class RawMaterialsSteps {
     public void goToQutes(){
         rawMaterialsPage.goToQuotesPage();
     }
+    @When("I click on rates of return")
+    public void goToRatesOfReturn(){
+        rawMaterialsPage.goToRatesOfReturnPage();
+    }
+    @When("I click on home page bread crumbs")
+    public void goToHomePageByBreadCrumbs(){
+        rawMaterialsPage.goToHomePageByBreadCrumbs();
+    }
 }

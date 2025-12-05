@@ -29,4 +29,5 @@ public class RawMaterialQuotesSteps {
     public void checkUpdateDate(){
     Assert.assertTrue(rawMaterialQuotesPage.checkUpdateDate());
 }
+
 }

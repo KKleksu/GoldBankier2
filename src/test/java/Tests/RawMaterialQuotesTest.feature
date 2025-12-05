@@ -74,3 +74,4 @@ Feature: Raw Material Quotes
       Then Im on raw material quotes page
       When I change date of stocks on 3.12.2025
       Then Date is changed on 3.12.2025
+
