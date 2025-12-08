@@ -19,15 +19,17 @@ public class HomePage extends PageObject {
     WebElement marketsSubMenuRawMaterials;
     @FindBy(css = ".m-menu-list__item")
     WebElement menuMarkets;
-
     @FindBy(css = ".m-home-article-item")
     WebElement homeArticle;
-
     @FindBy(css = "div.didomi-popup-container")
     WebElement popup;
-
     @FindBy(css = "#didomi-notice-agree-button")
     WebElement cookieAccept;
+    @FindBy(css = ".m-menu-list__item:nth-of-type(4)")
+            WebElement menuComparisonSites;
+    @FindBy(css = ".m-menu-list__anchor[href*='kredyty-gotowkowe'")
+            WebElement comparisonSitesSubMenuCashLoans;
+
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
@@ -36,6 +38,13 @@ public class HomePage extends PageObject {
         actions.moveToElement(menuMarkets);
         actions.moveToElement(marketsSubMenuRawMaterials).click().build().perform();
         return new RawMaterialsPage(driver);
+    }
+    public ComparisonLoanPage goToComparisonLoanPage(){
+        wait.until(ExpectedConditions.visibilityOf(menuComparisonSites));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(menuComparisonSites);
+        actions.moveToElement(comparisonSitesSubMenuCashLoans).click().build().perform();
+        return new ComparisonLoanPage(driver);
     }
 
     public boolean checkOnHomePageWithCookiePopUp() {

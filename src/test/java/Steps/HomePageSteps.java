@@ -11,14 +11,18 @@ public class HomePageSteps{
 
     @Given("Im on homepage")
     public void imOnHomePage(){
-           Assert.assertTrue(homePage.checkOnHomePageWithCookiePopUp());
+        Assert.assertTrue(homePage.checkOnHomePageWithCookiePopUp());
     }
-@When("I click raw materials")
-public void goToRawMaterialsPage(){
-homePage.goToRawMaterialsPage();
+    @When("I click raw materials")
+    public void goToRawMaterialsPage(){
+        homePage.goToRawMaterialsPage();
 }
-@Then("Im on homepage without cookie")
+    @Then("Im on homepage without cookie")
     public void checkOnHomePage(){
         Assert.assertTrue(homePage.checkOnHomePage());
+}
+    @When("I click cash loans")
+    public void goToCashLoansComparisonPage(){
+        homePage.goToComparisonLoanPage();
 }
 }

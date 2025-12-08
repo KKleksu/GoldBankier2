@@ -29,4 +29,29 @@ public class RawMaterialsSteps {
     public void goToHomePageByBreadCrumbs(){
         rawMaterialsPage.goToHomePageByBreadCrumbs();
     }
+    @When("I click on {string} in quotes section")
+    public void selectRawMaterialInQuotes(String quotesSelectionRawMaterial){
+        rawMaterialsPage.selectRawMaterialOnQuotesSection(quotesSelectionRawMaterial);
+    }
+    @Then("Selected raw material is {string}")
+    public void checkSelectedRawMaterial(String quotesCheckRawMaterial){
+        rawMaterialsPage.checkRawMaterialQuotesSectionSelection(quotesCheckRawMaterial);
+    }
+    @When("I click on {string} in fuel quotes section")
+    public void selectFuelInQuotes(String quotesSelectionFuel){
+        rawMaterialsPage.selectFuelOnQuotesSection(quotesSelectionFuel);
+    }
+    @Then("Selected fuel is {string}")
+    public void checkSelectedFuel(String quotesCheckFuel){
+        rawMaterialsPage.checkFuelQuotesSectionSelection(quotesCheckFuel);
+    }
+    @When("I click fuel price")
+    public void changeToFuelPrice(){
+        rawMaterialsPage.changeQuotesOnFuel();
+    }
+@Then("Fuel price is visible")
+    public void checkFuelPriceIsActive(){
+        Assert.assertTrue(rawMaterialsPage.checkFuelQuotesActive());
+}
+
 }
