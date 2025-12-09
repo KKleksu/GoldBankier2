@@ -29,6 +29,8 @@ public class HomePage extends PageObject {
             WebElement menuComparisonSites;
     @FindBy(css = ".m-menu-list__anchor[href*='kredyty-gotowkowe'")
             WebElement comparisonSitesSubMenuCashLoans;
+    @FindBy(xpath = "//*[@class='m-menu-list__sublist js-item-container']//*[@class='m-menu-list__subitem']//*[contains(text(),'Waluty')]")
+            WebElement marketsSubMenuCurrency;
 
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -61,5 +63,12 @@ public class HomePage extends PageObject {
         return homeArticle.isDisplayed();
 
 
+    }
+    public CurrencyPage goToCurrencyPage(){
+        wait.until(ExpectedConditions.visibilityOf(menuMarkets));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(menuMarkets);
+        actions.moveToElement(marketsSubMenuCurrency).click().build().perform();
+        return new CurrencyPage(driver);
     }
 }

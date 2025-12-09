@@ -25,4 +25,8 @@ public class HomePageSteps{
     public void goToCashLoansComparisonPage(){
         homePage.goToComparisonLoanPage();
 }
+    @When("I click on currency in markets submenu")
+    public void goToCurrencyPage(){
+    homePage.goToCurrencyPage();
+    }
 }
