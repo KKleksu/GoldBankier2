@@ -1,5 +1,6 @@
 package Steps;
 
+import Pages.Common;
 import Pages.CurrencyPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,6 +8,7 @@ import org.junit.Assert;
 
 public class CurrencyPageSteps {
     CurrencyPage currencyPage = new CurrencyPage(Setup.driver);
+    Common common = new Common(Setup.driver);
 
     @Then("Im on currency page")
     public void checkOnCurrencyPage() {
@@ -15,22 +17,22 @@ public class CurrencyPageSteps {
 
     @When("I click on {string} currency in forex")
     public void changeCurrencyInQuotesSectionForex(String currency) {
-        currencyPage.changeCurrencyOnQuotesSection(currency);
+        common.changeMainChartCard(currency);
     }
 
     @Then("I selected {string} currency on quotes section forex")
-    public void checkSelectenCurrencyOnQuotesSectionForex(String currency) {
-        Assert.assertTrue(currencyPage.checkSelectedCurrency(currency));
+    public void checkSelectedCurrencyOnQuotesSectionForex(String currency) {
+        Assert.assertTrue(common.checkChangeMainChartCard(currency));
     }
 
-    @When("I click on {string} peroid of time")
-    public void changePeroidInQuotesSection(String peroid) {
-        currencyPage.changePeroidOnQuotesSection(peroid);
+    @When("I click on {string} period on currency page")
+    public void changePeriodInQuotesSection(String period) {
+        common.changePeriod(period);
     }
 
-    @Then("Peroid is changed to {string}")
-    public void checkSelectedPeroidInQuotesSection(String peroid) throws InterruptedException {
-        Assert.assertTrue(currencyPage.checkSelectedPeroid(peroid));
+    @Then("Currency period is changed to {string}")
+    public void checkSelectedPeroidInQuotesSection(String period) throws InterruptedException {
+        Assert.assertTrue(common.checkChangePeriod(period));
     }
 
     @Then("Currency calculator show value {string}")
@@ -46,42 +48,43 @@ public class CurrencyPageSteps {
         currencyPage.changeNbpForex(rateBy);
     }
 
-    @When("I want to change main chart to {string}")
-    public void changeMainChart(String name) {
-        currencyPage.changeMainNavChart(name);
+    @When("I want to change nav chart to {string}")
+    public void changeNavChart(String name) {
+        common.changeNavTab(name);
     }
 
-    @Then("Chart {string} is selected")
+    @Then("Nav chart {string} is selected")
     public void checkMainChart(String chartName) {
-        Assert.assertTrue(currencyPage.checkMainChartChange(chartName));
+        Assert.assertTrue(common.checkChangeNavTab(chartName));
     }
 
     @When("I click on {string} currency in NBP")
     public void changeCurrencyInQuotesSectionNBP(String currency) {
-        currencyPage.changeCurrencyOnQuotesSection(currency);
+        common.changeMainChartCard(currency);
     }
 
     @Then("I selected {string} currency on quotes section NBP")
-    public void checkSelectenCurrencyOnQuotesSectionNBP(String currency) {
-        Assert.assertTrue(currencyPage.checkSelectedCurrency(currency));
+    public void checkSelectedCurrencyOnQuotesSectionNBP(String currency) {
+        Assert.assertTrue(common.checkChangeMainChartCard(currency));
 
     }
 
-    @When("I click on {string} currency in NBP buy")
-    public void changeCurrencyInQuotesSectionNBPbuy(String currency) {
-        currencyPage.changeCurrencyOnQuotesSectionNBPBuy(currency);
+    @When("I click on {string} currency in NBP buy, nav number {string}")
+    public void changeCurrencyInQuotesSectionNBPbuy(String currency, String numberOfNav) {
+        common.changeMainChartCard(currency,numberOfNav);
     }
 
-    @Then("I selected {string} currency on quotes section NBP buy")
-    public void checkSelectenCurrencyOnQuotesSectionNBPBuy(String currency) {
-        Assert.assertTrue(currencyPage.checkSelectedCurrency(currency));
+    @Then("I selected {string} currency on quotes section NBP buy, in this {string} put for EUR 2 rest 1")
+    public void checkSelectedCurrencyOnQuotesSectionNBPBuy(String currency,String numberOfNav) {
+        Assert.assertTrue(common.checkChangeMainChartCard(currency, numberOfNav));
     }
     @When("I click on {string} currency in NBP sell")
     public void changeCurrencyInQuotesSectionNBPsell(String currency) {
         currencyPage.changeCurrencyOnQuotesSectionNBPSell(currency);
     }
     @Then("I selected {string} currency on quotes section NBP sell")
-    public void checkSelectenCurrencyOnQuotesSectionNBPsell(String currency) {
+    public void checkSelectedCurrencyOnQuotesSectionNBPsell(String currency) {
         Assert.assertTrue(currencyPage.checkSelectedCurrency(currency));
     }
+
 }

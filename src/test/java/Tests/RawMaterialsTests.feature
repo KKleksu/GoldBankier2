@@ -11,7 +11,7 @@ Feature: Raw Material tests
     Given Im on homepage
     When I click raw materials
     Then Im on raw material page
-    When I click on <RawMaterial> in quotes section
+    When I click on <RawMaterial> material in quotes section
     Then Selected raw material is <RawMaterial>
 
     Examples:
@@ -42,3 +42,35 @@ Feature: Raw Material tests
         Then Im on raw material page
         When I click fuel price
         Then Fuel price is visible
+
+        Scenario Outline: Change raw material period
+          Given Im on homepage
+          When I click raw materials
+          Then Im on raw material page
+          When I click on <Period> period raw material
+          Then Raw material period is changed to <Period>
+
+          Examples:
+          |Period|
+          |"1D"  |
+          |"1W"  |
+          |"1M"  |
+          |"3M"  |
+          |"6M"  |
+          |"1Y"  |
+          |"5Y"  |
+          |"Max" |
+
+  Scenario Outline: Change fuel period
+    Given Im on homepage
+    When I click raw materials
+    Then Im on raw material page
+    When I click fuel price
+    And I click on <Period> period fuel
+    Then Fuel period is changed to <Period>
+
+    Examples:
+      |Period|
+      |"1Y"  |
+      |"5Y"  |
+      |"Max" |

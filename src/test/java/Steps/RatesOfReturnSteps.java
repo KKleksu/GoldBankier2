@@ -1,5 +1,6 @@
 package Steps;
 
+import Pages.Common;
 import Pages.RatesOfReturnPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,6 +8,7 @@ import org.junit.Assert;
 
 public class RatesOfReturnSteps {
     RatesOfReturnPage ratesOfReturnPage = new RatesOfReturnPage(Setup.driver);
+    Common common = new Common(Setup.driver);
 
     @Then("Im on rates of return page")
     public void checkOnRatesOfReturnPage() {
@@ -23,33 +25,40 @@ public class RatesOfReturnSteps {
         ratesOfReturnPage.checkOnLongTermRatesOfReturn();
     }
 
-
-    @Then("Short term is sorted by desc")
-    public void checkSortByDesc() {
-        Assert.assertTrue(ratesOfReturnPage.checkSortYTMDesc());
+    @When("I double click on sort by {string} in short rates of return")
+    public void sortShortRatesOfReturnByDesc(String sortBy) {
+        common.sortQuotesBy1TableDesc(sortBy);
+    }
+    @Then("Short rates of return are sorted by {string} desc")
+    public void checkSortByDesc(String sortBy) {
+        Assert.assertTrue(common.checkSortQuotesDesc(sortBy));
     }
 
-    @When("I click on sort by YTD")
-    public void sortRatesByYTD() {
-        ratesOfReturnPage.sortByYTD();
+    @When("I click on sort by {string} in short rates of return")
+    public void sortShortRatesOfReturnByAsc(String sortBy) {
+        common.sortQuotesBy1TableAsc(sortBy);
     }
 
-    @Then("Short term sorted by asc")
-    public void checkSortByAsc() {
-        Assert.assertTrue(ratesOfReturnPage.checkSortYTMAsc());
+    @Then("Short rates of return are sorted by {string} asc")
+    public void checkSortByAsc(String sortBy) {
+        Assert.assertTrue(common.checkSortQuotesAsc(sortBy));
     }
 
-    @When("I click on 10Y")
-    public void sortLongTermBy10Y() {
-        ratesOfReturnPage.sortBy10Y();
+    @When("I click sort by {string} in long rates of return")
+    public void sortLongRatesOfReturnByAsc(String sortBy) {
+        common.sortQuotesBy1TableAsc(sortBy);
     }
-    @Then("Long term is sorted asc")
-    public void checkLongTermSortAsc(){
-        Assert.assertTrue(ratesOfReturnPage.checkSort10YAsc());
+    @Then("Long rates of return are sorted by {string} asc")
+    public void checkSortLongRatesOfReturnByAsc(String sortBy){
+        Assert.assertTrue(common.checkSortQuotesAsc(sortBy));
     }
-    @Then("Long term is sorted desc")
-    public void checkLongTermSortDesc(){
-        Assert.assertTrue(ratesOfReturnPage.checkSort10YDesc());
+    @When("I double click sort by {string} in long rates of return")
+    public void sortLongRatesOfReturnByDesc(String sortBy) {
+        common.sortQuotesBy1TableDesc(sortBy);
+    }
+    @Then("Long rates of return are sorted by {string} desc")
+    public void checkLongTermSortDesc(String sortBy){
+        Assert.assertTrue(common.checkSortQuotesDesc(sortBy));
     }
     @When("I click raw material bread crumbs")
     public void goToRawMaterials(){

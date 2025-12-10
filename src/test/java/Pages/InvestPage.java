@@ -56,10 +56,10 @@ public class InvestPage extends PageObject{
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-    public void changeTime(String time){
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"']"))));
-        driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"']")).click();
-    }
+//    public void changeTime(String time){
+//        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"']"))));
+//        driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"']")).click();
+//    }
     public void additionalFunction(String function){
         wait.until(ExpectedConditions.visibilityOf(chart));
         driver.findElement(By.cssSelector(".a-quotes-button[data-value='"+function+"']")).click();
@@ -121,11 +121,11 @@ public class InvestPage extends PageObject{
         wait.until(ExpectedConditions.visibilityOf(timeSection));
         return timeSection.isDisplayed();
     }
-    public boolean checkTime(String time){
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"'].-active"))));
-        return driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"'].-active")).isDisplayed();
-
-    }
+//    public boolean checkTime(String time){
+//        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"'].-active"))));
+//        return driver.findElement(By.cssSelector("div.a-quotes-button[data-value='"+ time+"'].-active")).isDisplayed();
+//
+//    }
     public boolean checkChartType(String chartType){
         wait.until(ExpectedConditions.visibilityOf(chart));
         return driver.findElement(By.cssSelector(".a-quotes-button.-"+ chartType+".-active")).isDisplayed();

@@ -14,12 +14,12 @@ public class CurrencyPage extends PageObject{
 
 @FindBy(css = ".o-quotes-profile-currencies-calculator-aside-box__content")
     WebElement currencyCalculatorBox;
-    @FindBy(css = ".m-quotes-loading__container.chart-loading.-hide")
-            WebElement chart;
+//    @FindBy(css = ".m-quotes-loading__container.chart-loading.-hide")
+//            WebElement chart;
     @FindBy(xpath = "//*[@class='m-input-field-area']//*[@name='amount']")
             WebElement currencyAmountCalculator;
-    @FindBy(css = ".m-tabs-nav")
-            WebElement navigationTabsChart;
+//    @FindBy(css = ".m-tabs-nav")
+//            WebElement navigationTabsChart;
 
 
 
@@ -46,10 +46,10 @@ public class CurrencyPage extends PageObject{
 
     }
 
-    public void changePeroidOnQuotesSection(String peroid){
-        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
-        driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@data-value='"+peroid+"']")).click();
-    }
+//    public void changePeroidOnQuotesSection(String peroid){
+//        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
+//        driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@data-value='"+peroid+"']")).click();
+//    }
     public void sendAmountToCurrencyCalculator(String amount){
         wait.until(ExpectedConditions.visibilityOf(currencyAmountCalculator));
         currencyAmountCalculator.clear();
@@ -67,10 +67,10 @@ public class CurrencyPage extends PageObject{
         wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
         driver.findElement(By.cssSelector("option[value='"+currencyBy+"']"));
     }
-    public void changeMainNavChart(String name){
-        wait.until(ExpectedConditions.visibilityOf(navigationTabsChart));
-        driver.findElement(By.xpath("//*[@class='m-tabs-nav__item js-section-main-chart-nav'][contains(text(),'"+name+"')]")).click();
-    }
+//    public void changeMainNavChart(String name){
+//        wait.until(ExpectedConditions.visibilityOf(navigationTabsChart));
+//        driver.findElement(By.xpath("//*[@class='m-tabs-nav__item js-section-main-chart-nav'][contains(text(),'"+name+"')]")).click();
+//    }
 
     public boolean checkSelectedCurrency(String currency){
         wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
@@ -82,26 +82,26 @@ public class CurrencyPage extends PageObject{
         wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
         return currencyCalculatorBox.isDisplayed();
     }
-    public boolean checkSelectedPeroid(String peroid) throws InterruptedException {
-        Thread.sleep(3000);
-        if (peroid.equals("6M")){
-            return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button md-show -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
-        } else if (peroid.equals("5Y")) {
-            return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button md-show -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
-        } else if (peroid.equals("Max")) {
-            return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button md-show -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
-        }else {
-        return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
-    }
-    }
+//    public boolean checkSelectedPeroid(String peroid) throws InterruptedException {
+//        Thread.sleep(3000);
+//        if (peroid.equals("6M")){
+//            return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button md-show -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
+//        } else if (peroid.equals("5Y")) {
+//            return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button md-show -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
+//        } else if (peroid.equals("Max")) {
+//            return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button md-show -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
+//        }else {
+//        return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button -"+peroid+" -active'][@data-value='"+peroid+"']")).isDisplayed();
+//    }
+//    }
 public boolean checkCurrencyCalculatorResult(String amount){
         wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
         String a=driver.findElement(By.xpath("//div[@class='o-quotes-profile-currencies-calculator-aside-box__results-value']")).getText();
         a=a.substring(a.length()-3,a.length());
         return amount.equals(a);
 }
-public boolean checkMainChartChange(String chartName){
-        wait.until(ExpectedConditions.visibilityOf(navigationTabsChart));
-        return driver.findElement(By.xpath("//*[@class='m-tabs-nav__item js-section-main-chart-nav -is-active'][contains(text(),'"+chartName+"')]")).isDisplayed();
-}
+//public boolean checkMainChartChange(String chartName){
+//        wait.until(ExpectedConditions.visibilityOf(navigationTabsChart));
+//        return driver.findElement(By.xpath("//*[@class='m-tabs-nav__item js-section-main-chart-nav -is-active'][contains(text(),'"+chartName+"')]")).isDisplayed();
+//}
 }
