@@ -29,4 +29,9 @@ public class HomePageSteps{
     public void goToCurrencyPage(){
     homePage.goToCurrencyPage();
     }
+    @When("I click on stock market in markets submenu")
+    public void goToStockMarket(){
+        homePage.gotoStockMarketPage();
+    }
+
 }

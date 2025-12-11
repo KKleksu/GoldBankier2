@@ -31,6 +31,8 @@ public class HomePage extends PageObject {
             WebElement comparisonSitesSubMenuCashLoans;
     @FindBy(xpath = "//*[@class='m-menu-list__sublist js-item-container']//*[@class='m-menu-list__subitem']//*[contains(text(),'Waluty')]")
             WebElement marketsSubMenuCurrency;
+    @FindBy(xpath = "//*[@class='m-menu-list__sublist js-item-container']//*[@class='m-menu-list__subitem']//*[contains(text(),'Giełda')]")
+            WebElement marketsSubMenuStockMarket;
 
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -40,6 +42,12 @@ public class HomePage extends PageObject {
         actions.moveToElement(menuMarkets);
         actions.moveToElement(marketsSubMenuRawMaterials).click().build().perform();
         return new RawMaterialsPage(driver);
+    }
+    public StockMarketPage gotoStockMarketPage() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(menuMarkets);
+        actions.moveToElement(marketsSubMenuStockMarket).click().build().perform();
+        return new StockMarketPage(driver);
     }
     public ComparisonLoanPage goToComparisonLoanPage(){
         wait.until(ExpectedConditions.visibilityOf(menuComparisonSites));

@@ -38,21 +38,21 @@ public class InvestSteps {
     public void checkScaleChanged(String scale){
     Assert.assertTrue(investPage.checkScaleType(scale));
 }
-@When("I click on interval: {string}")
+@When("In invest page i click on interval: {string}")
     public void changeInterval(String interval) throws InterruptedException {
-    investPage.changeInterval(interval);
+    common.changeInterval(interval);
 }
-@Then("Interval is changed to {string}")
-    public void checkIntervalChange(String interval){
-    Assert.assertTrue(investPage.checkInterval(interval));
+@Then("In invest page its {string} and interval is changed to {string}")
+    public void checkIntervalChange(String interval, String time){
+    Assert.assertTrue(common.checkChangeInterval(interval,time));
 }
-@When("I click on theme: {string}")
+@When("In invest page i click on theme: {string}")
     public void changeTheme(String theme){
-    investPage.changeTheme(theme);
+    common.changeThemeInChart(theme);
 }
-@Then("Theme is changed to {string}")
+@Then("In invest page theme is changed to {string}")
     public void checkThemeChange(String theme){
-    Assert.assertTrue(investPage.checkTheme(theme));
+    Assert.assertTrue(common.checkThemeInChart(theme));
     }
 @Then("Newest news are visible")
     public void checkNews(){

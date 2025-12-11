@@ -74,17 +74,17 @@ public class CurrencyPageSteps {
         common.changeMainChartCard(currency,numberOfNav);
     }
 
-    @Then("I selected {string} currency on quotes section NBP buy, in this {string} put for EUR 2 rest 1")
-    public void checkSelectedCurrencyOnQuotesSectionNBPBuy(String currency,String numberOfNav) {
-        Assert.assertTrue(common.checkChangeMainChartCard(currency, numberOfNav));
+    @Then("I selected {string} currency on quotes section NBP buy")
+    public void checkSelectedCurrencyOnQuotesSectionNBPBuy(String currency) {
+        Assert.assertTrue(common.checkChangeMainChartCard(currency));
     }
-    @When("I click on {string} currency in NBP sell")
-    public void changeCurrencyInQuotesSectionNBPsell(String currency) {
-        currencyPage.changeCurrencyOnQuotesSectionNBPSell(currency);
+    @When("I click on {string} currency in NBP sell, nav number {string}")
+    public void changeCurrencyInQuotesSectionNBPSell(String currency,String numberOfNav) {
+        common.changeMainChartCard(currency, numberOfNav);
     }
     @Then("I selected {string} currency on quotes section NBP sell")
     public void checkSelectedCurrencyOnQuotesSectionNBPsell(String currency) {
-        Assert.assertTrue(currencyPage.checkSelectedCurrency(currency));
+        Assert.assertTrue(common.checkChangeMainChartCard(currency));
     }
 
 }

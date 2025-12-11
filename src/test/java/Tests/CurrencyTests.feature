@@ -76,12 +76,12 @@ Scenario Outline: Change main chart
 
     Examples:
       |Currency||ChartName|
-     # |"EUR"||"Średnie kursy NBP"|
+      |"EUR"||"Średnie kursy NBP"|
       |"USD"||"Średnie kursy NBP"|
      # |"CHF"||"Średnie kursy NBP"|
      # |"GBP"||"Średnie kursy NBP"|
 
-# EURO NIE DZIAŁA W POPRZEDNICH MOŻLIWE ŻE TEŻ NIE DO SPRAWDZENIA
+
   Scenario Outline: Change currency on quotes section NBP buy
     Given Im on homepage
     When I click on currency in markets submenu
@@ -89,27 +89,27 @@ Scenario Outline: Change main chart
     When I want to change nav chart to <ChartName>
     Then Nav chart <ChartName> is selected
     When I click on <Currency> currency in NBP buy, nav number "2"
-    Then I selected <Currency> currency on quotes section NBP buy, in this <Number> put for EUR 2 rest 1
+    Then I selected <Currency> currency on quotes section NBP buy
 
     Examples:
-      |Currency||ChartName||Number|
-      |"EUR"||"Kupno NBP" ||"2"|
-      #|"USD"||"Kupno NBP" ||"1"|
-      #|"CHF"||"Kupno NBP" ||"1"|
-     # |"GBP"||"Kupno NBP" ||"1"|
+      |Currency||ChartName|
+      |"EUR"||"Kupno NBP" |
+      |"USD"||"Kupno NBP" |
+      |"CHF"||"Kupno NBP" |
+      |"GBP"||"Kupno NBP" |
 
   Scenario Outline: Change currency on quotes section NBP sell
     Given Im on homepage
     When I click on currency in markets submenu
     Then Im on currency page
-    When I want to change main chart to <ChartName>
-    Then Chart <ChartName> is selected
-    When I click on <Currency> currency in NBP sell
+    When I want to change nav chart to <ChartName>
+    Then Nav chart <ChartName> is selected
+    When I click on <Currency> currency in NBP sell, nav number "3"
     Then I selected <Currency> currency on quotes section NBP sell
 
     Examples:
       |Currency||ChartName|
-     # |"EUR"||"Sprzedaż NBP"     |
-      |"USD"||"Sprzedaż NBP"     |
+      |"EUR"||"Sprzedaż NBP"     |
+      #|"USD"||"Sprzedaż NBP"     |
       |"CHF"||"Sprzedaż NBP"     |
-      |"GBP"||"Sprzedaż NBP"     |
+      #|"GBP"||"Sprzedaż NBP"     |

@@ -30,21 +30,21 @@ public class CurrencyPage extends PageObject{
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 
-    public void changeCurrencyOnQuotesSection(String currency){
-        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
-        driver.findElement(By.xpath("//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+currency+"']")).click();
-
-    }
-    public void changeCurrencyOnQuotesSectionNBPBuy(String currency){
-        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
-        driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+currency+"'])[2]")).click();
-
-    }
-    public void changeCurrencyOnQuotesSectionNBPSell(String currency){
-        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
-        driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+currency+"'])[3]")).click();
-
-    }
+//    public void changeCurrencyOnQuotesSection(String currency){
+//        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
+//        driver.findElement(By.xpath("//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+currency+"']")).click();
+//
+//    }
+//    public void changeCurrencyOnQuotesSectionNBPBuy(String currency){
+//        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
+//        driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+currency+"'])[2]")).click();
+//
+//    }
+//    public void changeCurrencyOnQuotesSectionNBPSell(String currency){
+//        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
+//        driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+currency+"'])[3]")).click();
+//
+//    }
 
 //    public void changePeroidOnQuotesSection(String peroid){
 //        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
@@ -72,10 +72,10 @@ public class CurrencyPage extends PageObject{
 //        driver.findElement(By.xpath("//*[@class='m-tabs-nav__item js-section-main-chart-nav'][contains(text(),'"+name+"')]")).click();
 //    }
 
-    public boolean checkSelectedCurrency(String currency){
-        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
-        return driver.findElement(By.xpath("//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='"+currency+"']")).isDisplayed();
-    }
+//    public boolean checkSelectedCurrency(String currency){
+//        wait.until(ExpectedConditions.visibilityOf(currencyCalculatorBox));
+//        return driver.findElement(By.xpath("//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='"+currency+"']")).isDisplayed();
+//    }
 
 
     public boolean checkOnCurrencyPage(){

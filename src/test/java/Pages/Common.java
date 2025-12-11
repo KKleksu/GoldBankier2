@@ -63,11 +63,11 @@ public class Common extends PageObject {
     // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+name+"'])[3]")));
     //driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@title='"+name+"'])[3]")).click();
     // }
-    //Nie działa dla walut Euro domyślnie wszytkie 3 są aktywne dla różnych kursów
-    public boolean checkChangeMainChartCard(String name,String number) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='" + name + "'])["+number+"]")));
-        return driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='" + name + "'])["+number+"]")).isDisplayed();
-    }
+
+//    public boolean checkChangeMainChartCard(String name,String number) {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='" + name + "'])["+number+"]")));
+//        return driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='" + name + "'])["+number+"]")).isDisplayed();
+//    }
     public boolean checkChangeMainChartCard(String name) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='" + name + "']")));
         return driver.findElement(By.xpath("(//*[@class='m-quotes-section-quotes-card-list__item']//*[@class='m-section-quotes-card -is-active'][@title='" + name + "'])")).isDisplayed();
@@ -100,5 +100,22 @@ public class Common extends PageObject {
         } else {
             return driver.findElement(By.xpath("//*[@class='m-quotes-option__buttons']//*[@class='a-quotes-button -" + period + " -active'][@data-value='" + period + "']")).isDisplayed();
         }
+
+    }
+    public void changeInterval(String interval){
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='m-quotes-option__buttons'])[8]//*[@data-value='"+interval+"']")));
+        driver.findElement(By.xpath("(//*[@class='m-quotes-option__buttons'])[8]//*[@data-value='"+interval+"']")).click();
+    }
+    public boolean checkChangeInterval(String time,String interval){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='a-quotes-button -"+time+" -"+interval+" -active']")));
+        return driver.findElement(By.xpath("//*[@class='a-quotes-button -"+time+" -"+interval+" -active']")).isDisplayed();
+    }
+    public void changeThemeInChart(String theme){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".a-quotes-button[data-value='"+theme+"']")));
+        driver.findElement(By.cssSelector(".a-quotes-button[data-value='"+theme+"']")).click();
+    }
+    public boolean checkThemeInChart(String theme){
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".a-quotes-button[data-value='"+theme+"']")));
+        return driver.findElement(By.cssSelector(".a-quotes-button[data-value='"+theme+"'].-active")).isDisplayed();
     }
 }
